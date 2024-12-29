@@ -31,7 +31,7 @@ const BlogContent = () => {
         <img
           src={`http://localhost:4000${post.image}`}
           alt={post.title}
-          className="w-full h-60 object-cover mt-4 rounded"
+          className="w-full h-48 object-cover mt-4 rounded"
         />
       )}
       <div className="mt-6 text-gray-700">

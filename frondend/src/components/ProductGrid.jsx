@@ -51,7 +51,7 @@ const ProductGrid = () => {
               <img
                 src={`http://localhost:4000/${product.images.mainImage.replace(/\\/g, "/")}`} // Adjust path and fix backslashes
                 alt={product.name}
-                className="w-full h-48 object-cover rounded transition-transform duration-300 transform hover:scale-110"
+                className="w-full h-50 object-cover rounded transition-transform duration-300 transform hover:scale-110"
                 loading="lazy" // Add lazy loading
               />
             </div>

@@ -26,10 +26,10 @@ const Shop = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('http://localhost:4000/api/products/listProducts'); // API call to fetch products
+        const response = await axios.get("http://localhost:4000/api/products/listProducts"); // API call to fetch products
         setProducts(response.data); // Set fetched products to state
       } catch (error) {
-        console.error('Error fetching products:', error);
+        console.error("Error fetching products:", error);
       }
     };
     fetchProducts();
@@ -57,47 +57,43 @@ const Shop = () => {
   return (
     <div className="flex flex-col md:flex-row p-4 gap-6 mt-20">
       {/* Filters Section */}
-     {/* Filters Section */}
-<div className="w-full md:w-1/4 bg-gray-100 p-4 rounded-lg shadow-md">
-  <h3 className="text-lg font-bold text-gray-700 uppercase mb-4">
-    CATEGORY
-  </h3>
-  <ul className="space-y-4">
-    {categories.map((category, index) => (
-      <li
-        key={index}
-        onClick={() => handleCategoryClick(category)}
-        className={`cursor-pointer pb-2 whitespace-nowrap ${
-          selectedCategory === category
-            ? "text-gray-800 font-bold border-b-2 border-gray-800"
-            : "text-gray-600 border-b border-gray-300"
-        } hover:text-gray-800 hover:border-gray-800 transition`}
-      >
-        {category}
-      </li>
-    ))}
-  </ul>
-</div>
-
+      <div className="w-full md:w-1/4 bg-gray-100 p-4 rounded-lg shadow-md">
+        <h3 className="text-lg font-bold text-gray-700 uppercase mb-4">CATEGORY</h3>
+        <ul className="space-y-4">
+          {categories.map((category, index) => (
+            <li
+              key={index}
+              onClick={() => handleCategoryClick(category)}
+              className={`cursor-pointer pb-2 whitespace-nowrap ${
+                selectedCategory === category
+                  ? "text-gray-800 font-bold border-b-2 border-gray-800"
+                  : "text-gray-600 border-b border-gray-300"
+              } hover:text-gray-800 hover:border-gray-800 transition`}
+            >
+              {category}
+            </li>
+          ))}
+        </ul>
+      </div>
 
       {/* Products Section */}
       <div className="w-full md:w-3/4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {productsToDisplay.map((product) => (
             <div
               key={product._id}
               className="product-card border p-4 rounded shadow-sm hover:shadow-lg cursor-pointer transition-transform duration-300 transform hover:scale-105"
               onClick={() => handleImageClick(product._id)}
             >
-              <div className="overflow-hidden rounded">
+              <div className="relative overflow-hidden rounded">
                 <img
                   src={`http://localhost:4000/${product.images.mainImage.replace(/\\/g, "/")}`} // Adjust path and fix backslashes
                   alt={product.name}
-                  className="w-full h-48 object-cover rounded transition-transform duration-300 transform hover:scale-110"
+                  className="w-full h-50 object-cover rounded transition-transform duration-300 transform hover:scale-110"
                   loading="lazy" // Add lazy loading
                 />
               </div>
-              <h3 className="mt-2 text-lg font-semibold text-center">
+              <h3 className="mt-2 text-base font-semibold text-center">
                 {product.name || "Unnamed Product"}
               </h3>
               <p className="text-sm text-gray-500 text-center">
