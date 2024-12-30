@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import mongoose from 'mongoose';
-import Seo from '../models/Seo.js'; // Adjust path based on your project structure
+import Seo from '../models/seo.js'; // Adjust path based on your project structure
 
 const router = Router();
 
